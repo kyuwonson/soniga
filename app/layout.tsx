@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { EstimatesProvider } from "@/contexts/EstimatesContext";
 
 export const metadata: Metadata = {
   title: "손이가 웨딩 - 웨딩 비교견적 플랫폼",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <EstimatesProvider>{children}</EstimatesProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { useAuth } from "@/contexts/AuthContext";
@@ -11,6 +11,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { login } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,7 +27,8 @@ export default function LoginPage() {
     // 실제로는 서버 API 호출이 필요하지만, 현재는 로컬에서 처리
     try {
       login(username, password);
-      router.push("/");
+      const redirect = searchParams.get("redirect");
+      router.push(redirect ? decodeURIComponent(redirect) : "/");
     } catch (err: any) {
       setError(err.message || "로그인에 실패했습니다. 다시 시도해주세요.");
     }
@@ -41,7 +43,9 @@ export default function LoginPage() {
             로그인
           </h1>
           <p className="text-gray-600 text-center mb-8">
-            손이가 웨딩에 오신 것을 환영합니다
+            {searchParams.get("redirect")
+              ? "견적 조회를 위해 로그인이 필요합니다"
+              : "손이가 웨딩에 오신 것을 환영합니다"}
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">

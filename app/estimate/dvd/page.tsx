@@ -1,8 +1,12 @@
+"use client";
+
 import Header from "@/components/Header";
 import Link from "next/link";
+import RequireAuth from "@/components/RequireAuth";
 
 export default function DvdPage() {
   return (
+    <RequireAuth>
     <main className="min-h-screen bg-ivory">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -20,5 +24,6 @@ export default function DvdPage() {
         </div>
       </div>
     </main>
+    </RequireAuth>
   );
 }
