@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { HOME_PATH } from "@/lib/paths";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -13,7 +14,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+          <a href={HOME_PATH} className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             {/* Logo Icon */}
             <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-pink-dusty rounded-full">
               <svg
@@ -34,7 +35,7 @@ export default function Header() {
             <div className="text-2xl md:text-3xl font-bold text-pink-dusty">
               손이가 웨딩
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-6">

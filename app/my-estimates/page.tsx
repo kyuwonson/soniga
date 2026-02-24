@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Link from "next/link";
+import { HOME_PATH } from "@/lib/paths";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEstimates } from "@/contexts/EstimatesContext";
 import { useRouter } from "next/navigation";
@@ -36,12 +37,12 @@ export default function MyEstimatesPage() {
                 {user?.name}님의 견적 내역입니다
               </p>
             </div>
-            <Link
-              href="/"
+            <a
+              href={HOME_PATH}
               className="px-4 py-2 text-sm text-gray-700 hover:text-pink-dusty transition-colors"
             >
               홈으로
-            </Link>
+            </a>
           </div>
 
           <div className="border-t border-pink-pale pt-8">

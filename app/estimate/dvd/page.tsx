@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
-import Link from "next/link";
+import { HOME_PATH } from "@/lib/paths";
 import RequireAuth from "@/components/RequireAuth";
 
 export default function DvdPage() {
@@ -15,12 +15,12 @@ export default function DvdPage() {
             DVD
           </h1>
           <p className="text-lg text-gray-600 mb-8">준비 중인 페이지입니다</p>
-          <Link
-            href="/"
+          <a
+            href={HOME_PATH}
             className="inline-block px-6 py-3 bg-pink-dusty text-white rounded-lg hover:bg-pink-soft transition-colors"
           >
             홈으로 돌아가기
-          </Link>
+          </a>
         </div>
       </div>
     </main>

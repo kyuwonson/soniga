@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Link from "next/link";
+import { HOME_PATH } from "@/lib/paths";
 import { useState } from "react";
 import { useEstimates } from "@/contexts/EstimatesContext";
 import RequireAuth from "@/components/RequireAuth";
@@ -132,9 +133,9 @@ export default function SdmePage() {
         {/* Breadcrumb & Title */}
         <div className="mb-8 md:mb-12">
           <nav className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link href="/" className="hover:text-pink-dusty transition-colors">
+            <a href={HOME_PATH} className="hover:text-pink-dusty transition-colors">
               홈
-            </Link>
+            </a>
             <span>/</span>
             <span className="text-gray-800 font-medium">(스)드메 견적 비교</span>
           </nav>
@@ -428,12 +429,12 @@ export default function SdmePage() {
 
         {/* Back to Home */}
         <div className="mt-10 text-center">
-          <Link
-            href="/"
+          <a
+            href={HOME_PATH}
             className="inline-block px-6 py-3 bg-pink-dusty text-white rounded-lg hover:bg-pink-soft transition-colors"
           >
             홈으로 돌아가기
-          </Link>
+          </a>
         </div>
       </div>
     </main>
